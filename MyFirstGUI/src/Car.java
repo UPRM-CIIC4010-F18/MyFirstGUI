@@ -36,14 +36,17 @@ public class Car {
 		
 		Graphics2D g2 = (Graphics2D) g;
 
-		Rectangle body = new Rectangle(0, 20, 120, 30);
+		Rectangle body = new Rectangle(this.getxPosition()+0, this.getyPosition()+20, 120, 30);
 
-		Ellipse2D.Double rearTire = new Ellipse2D.Double(20, 50, 20, 20);
-		Ellipse2D.Double frontTire = new Ellipse2D.Double(70, 50, 20, 20);
+		Ellipse2D.Double rearTire = new Ellipse2D.Double(this.getxPosition()+20, this.getyPosition()+50, 20, 20);
+		Ellipse2D.Double frontTire = new Ellipse2D.Double(this.getxPosition()+70, this.getyPosition()+50, 20, 20);
 
-		Line2D.Double rearWindow = new Line2D.Double(20, 20, 40, 0);
-		Line2D.Double frontWindow = new Line2D.Double(60, 0, 80, 20);
-		Line2D.Double roof = new Line2D.Double(40, 0, 60, 0);
+		Line2D.Double rearWindow = new Line2D.Double(this.getxPosition()+20, this.getyPosition()+20, 
+				this.getxPosition()+40, this.getyPosition()+0);
+		Line2D.Double frontWindow = new Line2D.Double(this.getxPosition()+60, this.getyPosition()+0, 
+				this.getxPosition()+80, this.getyPosition()+20);
+		Line2D.Double roof = new Line2D.Double(this.getxPosition()+40, this.getyPosition()+0, 
+				this.getxPosition()+60, this.getyPosition()+0);
 
 		g2.setColor(Color.BLUE);
 		g2.fill(body);
