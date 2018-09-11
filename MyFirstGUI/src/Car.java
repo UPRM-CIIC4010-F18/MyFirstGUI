@@ -6,10 +6,10 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 
 public class Car {
-	
+
 	private int xPosition;
 	private int yPosition;
-	
+
 	public Car(int xPosition, int yPosition) {
 		super();
 		this.xPosition = xPosition;
@@ -32,8 +32,12 @@ public class Car {
 		this.yPosition = yPosition;
 	}
 
+	public int getWidth() { return 120; }
+	
+	public int getHeight() { return 80; }
+
 	public void draw(Graphics g) {
-		
+
 		Graphics2D g2 = (Graphics2D) g;
 
 		Rectangle body = new Rectangle(this.getxPosition()+0, this.getyPosition()+20, 120, 30);
