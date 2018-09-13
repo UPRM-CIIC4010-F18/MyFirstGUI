@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.util.Random;
 
 import javax.swing.JComponent;
 
@@ -21,8 +22,17 @@ public class MyComponent extends JComponent {
 		theCar2.setxPosition(xLowerRight);
 		theCar2.setyPosition(yLowerRight);
 		
+		Random genRand = new Random();
+		
+		Car theCar3 = new Car(0,0);
+		int randomX = genRand.nextInt(this.getWidth()-theCar.getWidth());
+		int randomY = genRand.nextInt(this.getHeight()-theCar.getHeight());
+		theCar3.setxPosition(randomX);
+		theCar3.setyPosition(randomY);
+		
 		theCar.draw(g);
 		theCar2.draw(g);
+		theCar3.draw(g);
 		
 		counter++;
 		System.out.println("Counter = " + counter);
