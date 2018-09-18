@@ -9,11 +9,17 @@ public class Car {
 
 	private int xPosition;
 	private int yPosition;
+	private int speed; // Car speed in pixels per second
 
 	public Car(int xPosition, int yPosition) {
+		this(xPosition, yPosition, 5);
+	}
+	
+	public Car(int xPosition, int yPosition, int speed) {
 		super();
 		this.xPosition = xPosition;
 		this.yPosition = yPosition;
+		this.speed = speed;
 	}
 
 	public int getxPosition() {
@@ -22,6 +28,10 @@ public class Car {
 
 	public int getyPosition() {
 		return yPosition;
+	}
+	
+	public int getSpeed() {
+		return speed;
 	}
 
 	public void setxPosition(int xPosition) {

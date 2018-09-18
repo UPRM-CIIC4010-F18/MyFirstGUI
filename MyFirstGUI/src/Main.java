@@ -6,9 +6,9 @@ public class Main {
 		
 		JFrame mainFrame = new JFrame("My First GUI");
 		
-		mainFrame.setSize(500, 600);
+		mainFrame.setSize(800, 600);
 		
-		MyComponent myComponent = new MyComponent();
+		CarStage myComponent = new CarStage();
 		
 		mainFrame.add(myComponent);
 		
@@ -18,7 +18,7 @@ public class Main {
 			
 			mainFrame.repaint();
 			
-			Thread.sleep(1000);
+			Thread.sleep(1000/30);
 		}
 		
 		
