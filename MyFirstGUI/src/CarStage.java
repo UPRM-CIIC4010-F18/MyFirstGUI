@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -52,6 +53,22 @@ public class CarStage extends JComponent {
 				theCars[i].setxPosition(theCars[i].getxPosition() + (displacement * theCars[i].getDirection()));
 			}
 		}
+		
+		int xMax = theCars[0].getxPosition();
+		for(int i=1; i<numCars; i++) {
+			if (theCars[i].getxPosition() > xMax) {
+				xMax = theCars[i].getxPosition();
+			}
+		}
+		
+		for(int i=0; i<numCars; i++) {
+			if (theCars[i].getxPosition() == xMax) {
+				theCars[i].setColor(Color.ORANGE);
+			}
+			else {
+				theCars[i].setColor(Color.BLUE);
+			}
+		}		
 
 		counter++;
 		System.out.println("Counter = " + counter);

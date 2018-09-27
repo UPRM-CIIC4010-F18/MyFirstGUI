@@ -11,6 +11,8 @@ public class Car {
 	private int yPosition;
 	private int speed; // Car speed in pixels per second
 	private int direction;
+	
+	private Color color;
 
 	private static final int DEFAULT_PIXELS_PER_TICK = 10;
 	private static final int DEFAULT_DIRECTION = 1;
@@ -29,6 +31,7 @@ public class Car {
 		this.yPosition = yPosition;
 		this.speed = speed;
 		this.direction = direction;
+		this.color = Color.BLUE;
 	}
 	public int getxPosition() {
 		return xPosition;
@@ -46,6 +49,10 @@ public class Car {
 		return direction;
 	}
 
+	public Color getColor() {
+		return color;
+	}
+
 	public void setxPosition(int xPosition) {
 		this.xPosition = xPosition;
 	}
@@ -60,6 +67,10 @@ public class Car {
 
 	public void setDirection(int direction) {
 		this.direction = direction;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	public int getWidth() { return 120; }
@@ -95,15 +106,14 @@ public class Car {
 			roof = new Line2D.Double(20+this.getxPosition()+40, this.getyPosition()+0, 
 					20+this.getxPosition()+60, this.getyPosition()+0);
 		}
-		g2.setColor(Color.BLUE);
+		g2.setColor(this.getColor());
 		g2.fill(body);
-		g2.setColor(Color.BLACK);
-		g2.fill(rearTire);
-		g2.fill(frontTire);
-		g2.setColor(Color.BLUE);
 		g2.draw(rearWindow);
 		g2.draw(frontWindow);
 		g2.draw(roof);
+		g2.setColor(Color.BLACK);
+		g2.fill(rearTire);
+		g2.fill(frontTire);
 	}
 
 }
