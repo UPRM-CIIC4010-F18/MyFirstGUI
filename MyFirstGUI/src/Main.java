@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Main {
 
@@ -20,14 +21,31 @@ public class Main {
 
 		mainFrame.setVisible(true);
 
-		while(true) {
 
-			mainFrame.repaint();
+		int n=0; 
+		while (n==0) {
+			
+			int[] theWinners = myCarStage.getWinners();
+			
+			while(theWinners == null) {
 
-			Thread.sleep(1000/30);
+				mainFrame.repaint();
+
+				Thread.sleep(1000/30);
+
+				theWinners = myCarStage.getWinners();
+			}
+
+			n = JOptionPane.showConfirmDialog(
+					mainFrame,
+					"Race Again??",
+					"End of Race",
+					JOptionPane.YES_NO_OPTION);
+			
+			myCarStage.resetRace();
+			//n=0;
 		}
-
-
+		
 	}
 
 }

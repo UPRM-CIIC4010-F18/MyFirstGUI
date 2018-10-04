@@ -10,13 +10,13 @@ public class CarStage extends JComponent {
 
 	Car[] theCars=null;
 	private int numCars=0;
-	
+
 	Car[] newArray;
 
 	private static int INITIAL_NUM_CARS = 5;
-	
+
 	private Random generator;
-	
+
 	CarStage() {
 		generator = new Random();
 	}
@@ -53,14 +53,14 @@ public class CarStage extends JComponent {
 				theCars[i].setxPosition(theCars[i].getxPosition() + (displacement * theCars[i].getDirection()));
 			}
 		}
-		
+
 		int xMax = theCars[0].getxPosition();
 		for(int i=1; i<numCars; i++) {
 			if (theCars[i].getxPosition() > xMax) {
 				xMax = theCars[i].getxPosition();
 			}
 		}
-		
+
 		for(int i=0; i<numCars; i++) {
 			if (theCars[i].getxPosition() == xMax) {
 				theCars[i].setColor(Color.ORANGE);
@@ -78,6 +78,33 @@ public class CarStage extends JComponent {
 	public boolean carReachedEdge(Car c) {
 		return (((c.getDirection()>=0) && (c.getxPosition()+c.getWidth() >= this.getWidth())) || 
 				((c.getDirection()<0) && (c.getxPosition() <= 0)));
+	}
+
+	public int[] getWinners() {
+		int[] winners = new int[numCars];
+		int winnerCount = 0;
+		for (int i=0; i<numCars; i++ ) {
+			if (carReachedEdge(theCars[i])) {
+				winners[winnerCount] = i;
+				winnerCount++;
+			}
+		}
+		for (int i=winnerCount; i<numCars; i++) {
+			winners[i] = -1;
+		}
+		
+		if (winnerCount == 0) {
+			return null;
+		}
+		else {
+			return winners;
+		}
+	}
+	
+	public void resetRace() {
+		for (int i=0; i<numCars; i++) {
+			theCars[i].setxPosition(0);
+		}	
 	}
 
 }
