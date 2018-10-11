@@ -9,15 +9,15 @@ public class Main {
 
 		mainFrame.setSize(800, 600);
 
-		CarStage myCarStage = new CarStage();
+		VehicleStage myCarStage = new VehicleStage();
 
 		int yPos=12;
 		for (int i=0; i<5; i++) {
 			if (i % 2 == 0) {
-				myCarStage.addCar(new PoliceCar(0, yPos, 10));
+				myCarStage.addVehicle(new PoliceCar(0, yPos, 10));
 			}
 			else {
-				myCarStage.addCar(new Car(0, yPos, 10));
+				myCarStage.addVehicle(new Car(0, yPos, 10));
 			}
 			yPos += 80;
 		}
