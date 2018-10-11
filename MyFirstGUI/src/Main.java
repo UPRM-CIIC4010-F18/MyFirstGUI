@@ -11,9 +11,14 @@ public class Main {
 
 		CarStage myCarStage = new CarStage();
 
-		int yPos=0;
+		int yPos=12;
 		for (int i=0; i<5; i++) {
-			myCarStage.addCar(new Car(0, yPos, 10));
+			if (i % 2 == 0) {
+				myCarStage.addCar(new PoliceCar(0, yPos, 10));
+			}
+			else {
+				myCarStage.addCar(new Car(0, yPos, 10));
+			}
 			yPos += 80;
 		}
 
