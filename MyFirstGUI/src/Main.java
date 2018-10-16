@@ -9,18 +9,18 @@ public class Main {
 
 		mainFrame.setSize(800, 600);
 
-		VehicleStage myCarStage = new VehicleStage();
+		RaceableStage myCarStage = new RaceableStage();
 
 		int yPos=12;
 		for (int i=0; i<6; i++) {
 			if (i % 3 == 0) {
-				myCarStage.addVehicle(new PoliceCar(0, yPos, 10));
+				myCarStage.addRaceable(new PoliceCar(0, yPos, 10));
 			}
 			else if  (i % 3 == 1) {
-				myCarStage.addVehicle(new Car(0, yPos, 10));
+				myCarStage.addRaceable(new Car(0, yPos, 10));
 			}
 			else {
-				myCarStage.addVehicle(new Truck(0, yPos, 10));
+				myCarStage.addRaceable(new Truck(0, yPos, 10));
 			}
 			yPos += 80;
 		}

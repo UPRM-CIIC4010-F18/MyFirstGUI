@@ -1,11 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Raceable {
 
 	private int xPosition;
 	private int yPosition;
