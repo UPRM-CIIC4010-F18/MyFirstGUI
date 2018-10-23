@@ -12,7 +12,7 @@ public class Main {
 		RaceableStage myCarStage = new RaceableStage();
 
 		int yPos=12;
-		for (int i=0; i<6; i++) {
+		for (int i=0; i<5; i++) {
 			if (i % 3 == 0) {
 				myCarStage.addRaceable(new PoliceCar(0, yPos, 10));
 			}
@@ -24,6 +24,7 @@ public class Main {
 			}
 			yPos += 80;
 		}
+		myCarStage.addRaceable(new Frog(0, yPos, 10));
 
 		mainFrame.add(myCarStage);
 
