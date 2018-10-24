@@ -7,14 +7,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Frog implements Raceable {
-	private int xPosition;
-	private int yPosition;
-	private int speed; // Vehicle speed in pixels per second
-	private int direction;
+public class Frog extends AbstractRaceable implements Raceable {
 	
-	private Color color;
-
 	private static final int DEFAULT_PIXELS_PER_TICK = 10;
 	private static final int DEFAULT_DIRECTION = 1;
 	
@@ -29,12 +23,7 @@ public class Frog implements Raceable {
 	}
 
 	public Frog(int xPosition, int yPosition, int speed, int direction) {
-		super();
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
-		this.speed = 20;
-		this.direction = direction;
-		this.color = Color.BLUE;
+		super(xPosition, yPosition, speed, direction);
 		
 		try {
 			frogImage = ImageIO.read(new File("image/froggerScaled.png"));
@@ -44,50 +33,14 @@ public class Frog implements Raceable {
 		}
 		
 	}
-	public int getxPosition() {
-		return xPosition;
-	}
-
-	public int getyPosition() {
-		return yPosition;
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
-	public int getDirection() {
-		return direction;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public void setxPosition(int xPosition) {
-		this.xPosition = xPosition;
-	}
-
-	public void setyPosition(int yPosition) {
-		this.yPosition = yPosition;
-	}
-
-	public void setSpeed(int speed) {
-		//this.speed = speed;
-	}
-
-	public void setDirection(int direction) {
-		this.direction = direction;
-	}
 	
-	public void setColor(Color color) {
-		this.color = color;
-	}
-
+	@Override
 	public int getWidth() { return 50; }
 
+	@Override
 	public int getHeight() { return 50; }
 
+	@Override
 	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.drawImage(frogImage, this.getxPosition(), this.getyPosition(), null);

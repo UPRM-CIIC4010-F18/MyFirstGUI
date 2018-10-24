@@ -1,14 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public abstract class Vehicle implements Raceable {
-
-	private int xPosition;
-	private int yPosition;
-	private int speed; // Vehicle speed in pixels per second
-	private int direction;
-	
-	private Color color;
+public abstract class Vehicle extends AbstractRaceable implements Raceable {
 
 	private static final int DEFAULT_PIXELS_PER_TICK = 10;
 	private static final int DEFAULT_DIRECTION = 1;
@@ -22,51 +15,12 @@ public abstract class Vehicle implements Raceable {
 	}
 
 	public Vehicle(int xPosition, int yPosition, int speed, int direction) {
-		super();
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
-		this.speed = speed;
-		this.direction = direction;
-		this.color = Color.BLUE;
-	}
-	public int getxPosition() {
-		return xPosition;
-	}
-
-	public int getyPosition() {
-		return yPosition;
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
-	public int getDirection() {
-		return direction;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public void setxPosition(int xPosition) {
-		this.xPosition = xPosition;
-	}
-
-	public void setyPosition(int yPosition) {
-		this.yPosition = yPosition;
-	}
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-	public void setDirection(int direction) {
-		this.direction = direction;
-	}
-	
-	public void setColor(Color color) {
-		this.color = color;
+		super(xPosition, yPosition, speed, direction);
+//		this.xPosition = xPosition;
+//		this.yPosition = yPosition;
+//		this.speed = speed;
+//		this.direction = direction;
+//		this.color = Color.BLUE;
 	}
 
 	public int getWidth() { return 120; }

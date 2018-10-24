@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 
-public class Car extends Vehicle {
+public class Car extends Vehicle implements Raceable{
 
 //	private int xPosition;
 //	private int yPosition;
