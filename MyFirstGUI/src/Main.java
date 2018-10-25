@@ -24,7 +24,7 @@ public class Main {
 			}
 			yPos += 80;
 		}
-		myCarStage.addRaceable(new Frog(0, yPos, 10));
+		myCarStage.addRaceable(new RacingFrog(0, yPos, 10));
 
 		mainFrame.add(myCarStage);
 
