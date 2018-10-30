@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public interface Raceable {
+public interface Raceable extends Comparable<Raceable> {
 	
 	public int getxPosition();
 	public int getyPosition();

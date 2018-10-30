@@ -64,4 +64,10 @@ public abstract class AbstractRaceable implements Raceable {
 	public abstract int getHeight();
 
 	public abstract void draw(Graphics g);
+	
+	// Comparable<Raceable> interface methods
+	public int compareTo(Raceable r) {
+		return -((this.getxPosition()+this.getWidth()) - 
+				(r.getxPosition() + r.getWidth()));
+	}
 }

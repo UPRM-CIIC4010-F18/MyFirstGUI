@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.Arrays;
 import java.util.Random;
 
 import javax.swing.JComponent;
@@ -68,7 +70,16 @@ public class RaceableStage extends JComponent {
 			else {
 				theRaceables[i].setColor(Color.BLUE);
 			}
-		}		
+		}
+		
+		theRaceables = Arrays.copyOf(theRaceables, numRaceables);
+
+		Arrays.sort(theRaceables);
+		
+		Graphics2D g2 = (Graphics2D) g;
+		for(int i=0; i<numRaceables; i++) {
+			g2.drawString(i+"", theRaceables[i].getxPosition()+5, theRaceables[i].getyPosition()+5);
+		}
 
 		counter++;
 		System.out.println("Counter = " + counter);
@@ -92,7 +103,7 @@ public class RaceableStage extends JComponent {
 		for (int i=winnerCount; i<numRaceables; i++) {
 			winners[i] = -1;
 		}
-		
+
 		if (winnerCount == 0) {
 			return null;
 		}
@@ -100,7 +111,7 @@ public class RaceableStage extends JComponent {
 			return winners;
 		}
 	}
-	
+
 	public void resetRace() {
 		for (int i=0; i<numRaceables; i++) {
 			theRaceables[i].setxPosition(0);
