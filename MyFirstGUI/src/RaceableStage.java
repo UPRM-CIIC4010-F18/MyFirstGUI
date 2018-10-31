@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 import javax.swing.JComponent;
@@ -71,10 +72,19 @@ public class RaceableStage extends JComponent {
 				theRaceables[i].setColor(Color.BLUE);
 			}
 		}
-		
+
 		theRaceables = Arrays.copyOf(theRaceables, numRaceables);
 
-		Arrays.sort(theRaceables);
+		//		Arrays.sort(theRaceables, new Comparator<Raceable>() {
+		//			public int compare(Raceable r1, Raceable r2) {
+		//				return ((r1.getxPosition()+r1.getWidth()) - 
+		//						(r2.getxPosition() + r2.getWidth()));	
+		//			}
+		//		});
+
+		Arrays.sort(theRaceables, 
+				(r1, r2) -> -((r1.getxPosition()+r1.getWidth()) - 
+						(r2.getxPosition() + r2.getWidth())));
 		
 		Graphics2D g2 = (Graphics2D) g;
 		for(int i=0; i<numRaceables; i++) {
